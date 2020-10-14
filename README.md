@@ -50,3 +50,64 @@ behind this social network.
 I want to create a network full
 of real connections
 to people that you really care about.
+
+## The Rules
+
+1. The maximum number of connections is 1000.
+
+For this concept to work,
+there has to be a ceiling.
+The choice here is arbitrary
+and based on zero scientific research,
+but 1000 is a nice round number
+that seems reasonable.
+
+2. Connection requests count as part of the total 1000 connections.
+
+The network should have real connection
+between people
+that really have some kind of relationship
+with each other.
+
+If you're that annoying person
+who tries to connect to people
+that you don't know
+to selfishly boost your reach,
+this social network will hold that against you.
+
+A connection request can transition
+between a few states:
+
+* Pending -> Accepted:
+  You've made a real connection and the other person accepted.
+* Pending -> Rejected:
+  You tried to connect to someone and they didn't want to connect.
+  That means you burned 1 of your 1000 possible connections.
+* Pending -> Expired:
+  You tried to connect to someone and they didn't respond.
+  Guess what? That probably means they didn't want to connect,
+  but they maybe didn't want to hurt your feelings.
+  That still means you burned 1 of your 1000 possible connections.
+
+3. Existing connections can be burned but not severed.
+
+Break-ups happen.
+Sometimes relationships fall apart for different reasons.
+The connection to that person is permanent,
+but you can burn it
+so they can never be part
+of your network again.
+
+A burned connection counts as part of the 1000.
+Why?
+If connections can be severed,
+the system can be easily gamed.
+A connection in real life can be a sad/bad memory,
+but it was still part of life.
+Connection in the network should reflect that too.
+
+These rules are all intended
+to create a tension.
+The rules exist
+to force people to make choices
+with significance.
