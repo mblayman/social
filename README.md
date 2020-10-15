@@ -111,3 +111,31 @@ to create a tension.
 The rules exist
 to force people to make choices
 with significance.
+
+## MVP Features
+
+### Keeping contact information in sync
+
+All information is private by default (in contrast to Facebook)
+
+Access control / permissions:
+
+* Inner circle (full visibility)
+* Middle circle
+* Outer circle (connections default to the outer circle)
+
+Field example:
+
+* Email: inner circle, middle circle, !outer circle
+
+### Invitation flow
+
+Two types of people that you would invite.
+
+1. People that already have accounts.
+
+Connection request would count against the total.
+
+2. People that don't have an account.
+
+Use an invitation flow that doesn't impact the total.
