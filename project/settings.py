@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+from typing import List
 
 import django_heroku
 import environ
@@ -18,7 +19,13 @@ import environ
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-env = environ.Env()
+env = environ.Env(
+    CSRF_COOKIE_SECURE=(bool, True),
+    DEBUG=(bool, False),
+    SECURE_HSTS_SECONDS=(int, 60 * 60 * 24 * 365),
+    SECURE_SSL_REDIRECT=(bool, True),
+    SESSION_COOKIE_SECURE=(bool, True),
+)
 env_file = BASE_DIR / ".env"
 if env_file.exists():
     environ.Env.read_env(str(env_file))
@@ -30,9 +37,9 @@ if env_file.exists():
 SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS: List[str] = []
 
 
 # Application definition
@@ -44,7 +51,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "users",
+    "django_extensions",
+    "social.users",
 ]
 
 MIDDLEWARE = [
@@ -115,6 +123,23 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Security
+# Some of these are configurable settings because local development is done
+# over HTTP. If local development is ever switched to HTTPS, then it would
+# be good to enable the settings all the time.
+CSRF_COOKIE_SECURE = env("CSRF_COOKIE_SECURE")
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+SECURE_REFERRER_POLICY = "same-origin"
+SECURE_HSTS_SECONDS = env("SECURE_HSTS_SECONDS")
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_SSL_REDIRECT = env("SECURE_SSL_REDIRECT")
+SESSION_COOKIE_SECURE = env("SESSION_COOKIE_SECURE")
+
+SILENCED_SYSTEM_CHECKS = [
+    # For now, since there is no custom domain, the site is not added
+    # to the HSTS preload list.
+    "security.W021"
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
