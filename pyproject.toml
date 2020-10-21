@@ -2,7 +2,17 @@
 addopts = "--nomigrations"
 DJANGO_SETTINGS_MODULE = "project.testing_settings"
 
-[isort]
+[tool.coverage.report]
+fail_under = 100
+omit = [
+    "*/commands/*",
+    "*/migrations/*",
+    "*/apps.py",
+]
+show_missing = true
+skip_covered = true
+
+[tool.isort]
 line_length = 88
 known_third_party = [
     "django",
