@@ -53,16 +53,16 @@ to people that you really care about.
 
 ## The Rules
 
-1. The maximum number of connections is 1000.
+1. The maximum number of connections is 500.
 
 For this concept to work,
 there has to be a ceiling.
 The choice here is arbitrary
 and based on zero scientific research,
-but 1000 is a nice round number
+but 500 is a nice round number
 that seems reasonable.
 
-2. Connection requests count as part of the total 1000 connections.
+2. Connection requests count as part of the total 500 connections.
 
 The network should have real connection
 between people
@@ -82,12 +82,12 @@ between a few states:
   You've made a real connection and the other person accepted.
 * Pending -> Rejected:
   You tried to connect to someone and they didn't want to connect.
-  That means you burned 1 of your 1000 possible connections.
+  That means you burned 1 of your 500 possible connections.
 * Pending -> Expired:
   You tried to connect to someone and they didn't respond.
   Guess what? That probably means they didn't want to connect,
   but they maybe didn't want to hurt your feelings.
-  That still means you burned 1 of your 1000 possible connections.
+  That still means you burned 1 of your 500 possible connections.
 
 3. Existing connections can be burned but not severed.
 
@@ -98,7 +98,7 @@ but you can burn it
 so they can never be part
 of your network again.
 
-A burned connection counts as part of the 1000.
+A burned connection counts as part of the 500.
 Why?
 If connections can be severed,
 the system can be easily gamed.
