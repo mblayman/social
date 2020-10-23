@@ -1,6 +1,7 @@
 [tool.pytest.ini_options]
 addopts = "--nomigrations"
 DJANGO_SETTINGS_MODULE = "project.testing_settings"
+testpaths = ["social"]
 
 [tool.coverage.report]
 fail_under = 100
