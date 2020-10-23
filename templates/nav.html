@@ -1,28 +1,37 @@
-<nav class="flex bg-orange-100 text-orange-900 border-b-2 border-orange-600 sm:h-16 items-center">
+<nav class="flex bg-orange-100 text-orange-900 sm:h-16 items-center">
   <div class="w-full max-w-6xl relative mx-auto px-6">
     <div class="flex flex-col sm:flex-row sm:items-center">
-      <a href="/" class="block mr-4 py-1 flex items-center">
+      <a href="/" class="block sm:mr-4 py-2 flex items-center justify-center">
         {# <img class="h-10 w-10 mr-2" src="{% static "logo.svg" %}" alt="Social Network"> #}
-        <h1 class="text-lg uppercase tracking-wider font-medium hover:underline">Social Network</h1>
+        <h1 class="text-2xl sm:text-lg uppercase tracking-wider font-medium hover:underline">Social Network</h1>
       </a>
       <div class="flex-grow"></div>
 
-      {% if user.is_authenticated %}
-        {% if user.is_staff %}
-          <div class="mr-4">
-            <a class="hover:underline font-light" href="{% url "admin:index" %}">
-              Clubhouse
-            </a>
+      <div class="py-4 flex flex-row justify-around">
+        {% if user.is_authenticated %}
+          {% if user.is_staff %}
+            <div class="mr-4">
+              <a class="hover:underline font-light" href="{% url "admin:index" %}">
+                Clubhouse
+              </a>
+            </div>
+          {% endif %}
+          <div>
+            <form method="POST" action="{% url 'account_logout' %}">
+              {% csrf_token %}
+              <button class="hover:underline font-light" type="submit">Log Out</button>
+            </form>
+          </div>
+        {% else %}
+          <div>
+            <a class="hover:underline font-light" href="{% url 'account_login' %}">Log In</a>
+          </div>
+          <div>
+            <a class="hover:underline ml-0 sm:ml-4 my-2 font-light" href="{% url 'account_signup' %}">Sign Up</a>
           </div>
         {% endif %}
-        <form method="POST" action="{% url 'account_logout' %}">
-          {% csrf_token %}
-          <button class="hover:underline font-light" type="submit">Log Out</button>
-        </form>
-      {% else %}
-        <a class="hover:underline font-light" href="{% url 'account_login' %}">Log In</a>
-        <a class="hover:underline ml-0 sm:ml-4 my-2 font-light" href="{% url 'account_signup' %}">Sign Up</a>
-      {% endif %}
+      </div>
     </div>
   </div>
 </nav>
+<div class="h-1 bg-gradient-to-r from-orange-400 via-red-500 to-orange-800 w-full"></div>
