@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-US" class="bg-white subpixel-antialiased">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <title>{% block title %}{% endblock %}</title>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  {% include "nav.html" %}
+
+  {% block main_container %}{% endblock %}
+
+  <footer class="container mx-auto border-t border-purple-100 p-4 text-center text-sm text-gray-600">
+    <span class="mx-1">&copy; {% now "Y" %} Matt Layman</span>
+    <a href="" class="mx-1 hover:text-gray-900">About</a>
+    <a href="" class="mx-1 hover:text-gray-900">Terms</a>
+    <a href="" class="mx-1 hover:text-gray-900">Privacy</a>
+  </footer>
+  {% block scripts %}{% endblock %}
+</body>
+</html>
