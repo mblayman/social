@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "social.core",
+    "social.invites",
     "social.users",
 ]
 

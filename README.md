@@ -78,12 +78,14 @@ this social network will hold that against you.
 A connection request can transition
 between a few states:
 
-* Pending -> Accepted:
+* Pending -> Sent:
+  A invitation requested by you is sent out via email to the other person.
+* Sent -> Accepted:
   You've made a real connection and the other person accepted.
-* Pending -> Rejected:
+* Sent -> Rejected:
   You tried to connect to someone and they didn't want to connect.
   That means you burned 1 of your 500 possible connections.
-* Pending -> Expired:
+* Sent -> Expired:
   You tried to connect to someone and they didn't respond.
   Guess what? That probably means they didn't want to connect,
   but they maybe didn't want to hurt your feelings.
