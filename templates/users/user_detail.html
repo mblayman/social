@@ -1,5 +1,17 @@
 {% extends "app.html" %}
 
+{% block title %}{{ viewed_user.username }}{% endblock %}
+
 {% block main %}
-  <h1>User {{ viewed_user.username }}</h1>
+  {% if viewed_user != user %}
+    <div class="mx-auto max-w-sm text-center">
+      <h1 class="text-4xl font-semibold text-orange-600 mb-8 pb-2 border-b border-orange-600">{{ viewed_user.username }}</h1>
+      <p class="mb-8 text-gray-800">You are not connected to {{ viewed_user.username }}.</p>
+      <p>
+        <a href="#" class="bg-gradient-to-br from-orange-500 to to-orange-700 hover:from-orange-400 hover:to-orange-600 text-white font-semibold py-3 px-4 rounded focus:outline-none focus:shadow-outline">
+          Send invite to {{ viewed_user.username }}
+        </a>
+      </p>
+    </div>
+  {% endif %}
 {% endblock %}
