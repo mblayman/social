@@ -20,6 +20,8 @@ class Invite(models.Model):
         REJECTED = 4
         EXPIRED = 5
 
+    IN_FLIGHT_STATUSES = [InviteStatus.PENDING, InviteStatus.SENT]
+
     created_at = models.DateTimeField(auto_now_add=True)
     sent_at = models.DateTimeField(null=True, blank=True)
     from_user = models.ForeignKey(

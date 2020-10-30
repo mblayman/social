@@ -141,3 +141,17 @@ Connection request would count against the total.
 2. People that don't have an account.
 
 Use an invitation flow that doesn't impact the total.
+
+## Budget
+
+### Upfront cost
+
+* Branding (icon design) - Fiverr ($25 - $50)
+
+### Ongoing costs
+
+* Domain name - $30/year
+* Hosting - $7/month
+* Email - SendGrid - (free for 100 emails/day)
+
+MVP startup cost (worst case) == 50 + 30 + 7 = $87

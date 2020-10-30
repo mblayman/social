@@ -9,6 +9,7 @@ deploy:
 graph:
 	./manage.py graph_models \
 		users \
+		invites \
 		-o models.png
 
 coverage:
