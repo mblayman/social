@@ -3,9 +3,61 @@
 {% block title %}A social network for your real connections{% endblock %}
 
 {% block main_container %}
-  <main class="p-8">
+  <main class="p-8 max-w-xl mx-auto">
     {% include "messages.html" %}
-    <h1>Landing page</h1>
+    <h1 class="text-orange-600 text-5xl text-center font-light mb-6">500 Connections</h1>
+    <p class="text-gray-700 font-light mb-4">
+      In your real life social circle,
+      how many people are you connected to?
+    </p>
+    <p class="text-gray-700 font-light mb-4">
+      No, that guy you knew in one class in high school doesn't count.
+      <i>Why?</i>
+      Well, because you probably don't really care about the baby pictures
+      of his new kid.
+    </p>
+    <p class="text-gray-700 font-light mb-4">
+      What if there was a social network
+      that recognized that your <i>real</i> social network isn't a group of 100k people
+      that follow you?
+    </p>
+    <p class="text-gray-700 font-light mb-4">
+      SocialCircle is that network.
+    </p>
+    <p class="text-gray-700 font-light mb-4">
+      I believe so strongly
+      that you should focus
+      on the real network
+      of people in your life
+      that SocialCircle <i>intentionally</i> limits the size
+      of a personal network
+      to <span class="font-medium">500 connections</span>.
+    </p>
+    <p class="text-gray-700 font-light mb-4">
+      You know something else that's annoying about social networks?
+      <i>Nothing is stopping that guy from high school from trying to add you to his network!</i>
+    </p>
+    <p class="text-gray-700 font-light mb-4">
+      On SocialCircle,
+      if someone tries to add you to their network
+      and you don't connect with them,
+      it's a strike against <i>their</i> total connections.
+    </p>
+    <p class="text-gray-700 font-light mb-4">
+      So,
+      if you're looking for a social network
+      that's for the people you really care about,
+      check out SocialCircle today.
+    </p>
+    <div class="text-center my-8">
+      <a href="{% url "account_signup" %}" class="bg-gradient-to-br from-orange-500 to to-orange-700 hover:from-orange-400 hover:to-orange-600 text-white font-semibold py-3 px-4 rounded focus:outline-none focus:shadow-outline">
+        Sign Up
+      </a>
+    </div>
+    <p class="text-gray-700 font-light mb-4">
+      Matt Layman<br>
+      Founder of SocialCircle
+    </p>
   </main>
 {% endblock %}
 
