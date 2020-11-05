@@ -15,8 +15,8 @@ def send_invite(request, username: str):
 
     Creates a pending invite between users.
     """
+    to_user = get_object_or_404(User, username=username)
     if request.method == "GET":
-        to_user = get_object_or_404(User, username=username)
         form = SendInviteForm(
             data={"from_user": str(request.user.id), "to_user": str(to_user.id)}
         )
@@ -30,5 +30,9 @@ def send_invite(request, username: str):
         messages.add_message(request, messages.SUCCESS, f"Invite sent to {username}.")
         return redirect("core:index")
 
-    context: dict = {"form": form}
+    context: dict = {
+        "form": form,
+        "remaining_connections": request.user.remaining_connections,
+        "to_user": to_user,
+    }
     return render(request, "invites/send.html", context)

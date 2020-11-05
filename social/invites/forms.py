@@ -10,8 +10,12 @@ from .models import Invite
 class SendInviteForm(forms.Form):
     """Set a pending a invite if valid."""
 
-    from_user = forms.ModelChoiceField(queryset=User.objects.all(), required=True)
-    to_user = forms.ModelChoiceField(queryset=User.objects.all(), required=True)
+    from_user = forms.ModelChoiceField(
+        queryset=User.objects.all(), required=True, widget=forms.HiddenInput()
+    )
+    to_user = forms.ModelChoiceField(
+        queryset=User.objects.all(), required=True, widget=forms.HiddenInput()
+    )
 
     def clean(self):
         cleaned_data = super().clean()

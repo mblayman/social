@@ -20,6 +20,7 @@ class TestSendInvite(TestCase):
 
         form = self.get_context("form")
         assert form.is_valid()
+        assert self.get_context("to_user") == to_user
 
     def test_invalid_to_user(self):
         """An invalid to_user is a 404."""

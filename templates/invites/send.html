@@ -1,1 +1,38 @@
 {% extends "app.html" %}
+
+{% block title %}Send invite to {{ to_user }}{% endblock %}
+
+{% block main %}
+  <div class="mx-auto max-w-lg">
+    <h1 class="text-4xl text-center font-semibold text-orange-600 mb-8 pb-2 border-b border-orange-600">Send invite to {{ to_user }}</h1>
+    {% if form.errors %}
+      {% for error in form.non_field_errors %}
+        <p class="mb-8 text-gray-800">{{ error }}</p>
+      {% endfor %}
+
+      <div class="text-center">
+        <button class="bg-gradient-to-br from-orange-500 to to-orange-700 text-white font-semibold py-3 px-4 rounded opacity-50 cursor-not-allowed">
+          Send invite to {{ to_user.username }}
+        </button>
+      </div>
+    {% else %}
+      <form method="POST">
+        {% csrf_token %}
+        <p class="mb-4 text-gray-800">
+          Do you want to invite {{ to_user }} to join your network?
+        </p>
+        <p class="mb-8 text-gray-800">
+          You have {{ remaining_connections }} remaining connection{{ remaining_connections|pluralize }}
+          to add to your network.
+        </p>
+        {{ form.from_user }}
+        {{ form.to_user }}
+        <div class="text-center">
+          <button type="submit" class="bg-gradient-to-br from-orange-500 to to-orange-700 hover:from-orange-400 hover:to-orange-600 text-white font-semibold py-3 px-4 rounded focus:outline-none focus:shadow-outline">
+            Send invite to {{ to_user.username }}
+          </button>
+        </div>
+      </form>
+    {% endif %}
+  </div>
+{% endblock %}
