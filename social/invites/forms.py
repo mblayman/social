@@ -1,6 +1,5 @@
 from django import forms
 
-from social.users import constants as users_constants
 from social.users.models import User
 
 from . import constants
@@ -34,13 +33,7 @@ class SendInviteForm(forms.Form):
             raise forms.ValidationError("The user is invalid.")
 
     def _check_max_connections(self, from_user):
-        # TODO: Include real connections when available.
-        if (
-            Invite.objects.filter(from_user=from_user)
-            .exclude(status=Invite.InviteStatus.ACCEPTED)
-            .count()
-            >= users_constants.MAX_USER_CONNECTIONS
-        ):
+        if from_user.remaining_connections <= 0:
             raise forms.ValidationError(
                 "You are at your maximum number of connections."
             )

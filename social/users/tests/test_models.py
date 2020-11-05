@@ -11,6 +11,7 @@ class TestUser(TestCase):
 
     def test_remaining_connections(self):
         """A user has a count of its remaining available connections."""
+        # TODO: Include real connections when available.
         user = self.make_user()
         InviteFactory(from_user=user)
         InviteFactory(from_user=user, status=Invite.InviteStatus.ACCEPTED)

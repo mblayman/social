@@ -104,7 +104,7 @@ class TestSendInviteForm(TestCase):
             == 1
         )
 
-    @mock.patch("social.invites.forms.users_constants")
+    @mock.patch("social.users.models.constants")
     def test_max_connections(self, mock_users_constants):
         """A user may not send any invites when they are at their max connections."""
         mock_users_constants.MAX_USER_CONNECTIONS = 1
@@ -121,7 +121,7 @@ class TestSendInviteForm(TestCase):
             "You are at your maximum number of connections." in form.non_field_errors()
         )
 
-    @mock.patch("social.invites.forms.users_constants")
+    @mock.patch("social.users.models.constants")
     def test_max_connections_accepted_invite(self, mock_users_constants):
         """An accepted invite does not count against the max connections total."""
         mock_users_constants.MAX_USER_CONNECTIONS = 1
