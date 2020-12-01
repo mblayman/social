@@ -3,7 +3,7 @@ django-test-plus==1.4.0
 factory-boy
 flake8
 mypy==0.790
-pip-tools==5.3.1
+pip-tools==5.4.0
 pre-commit
 pygraphviz==1.6
 pytest-django==4.1.0
