@@ -14,7 +14,7 @@ dj-database-url==0.5.0    # via django-heroku
 django-allauth==0.43.0    # via -r requirements.in
 django-debug-toolbar==3.1.1  # via -r requirements.in
 django-environ==0.4.5     # via -r requirements.in
-django-extensions==3.0.9  # via -r requirements.in
+django-extensions==3.1.0  # via -r requirements.in
 django-heroku==0.3.1      # via -r requirements.in
 django==3.1.2             # via -r requirements.in, django-allauth, django-debug-toolbar, django-heroku
 gunicorn==20.0.4          # via -r requirements.in
