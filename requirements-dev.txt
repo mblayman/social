@@ -5,5 +5,5 @@ flake8
 mypy==0.800
 pip-tools==5.5.0
 pre-commit
-pygraphviz==1.6
+pygraphviz==1.7
 pytest-django==4.1.0
